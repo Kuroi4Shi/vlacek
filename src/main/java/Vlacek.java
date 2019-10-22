@@ -24,7 +24,27 @@ public class Vlacek {
      * @param type
      */
     public void pridatVagonek(VagonekType type) {
+        Vagonek vagonek = new Vagonek(type);
+        switch (type) {
+            case PRVNI_TRIDA:
+                lokomotiva.setNasledujici(vagonek);
+                posledni.setUmisteni(+1);
+                break;
+            case DRUHA_TRIDA:
+                posledni.getPredchozi().setNasledujici(vagonek);
+                vagonek.setNasledujici(posledni);
+                posledni.setPredchozi(vagonek);
+                posledni.setUmisteni(+1);
+                break;
+        }
+        delka++;
+    }
 
+
+    private void dadad(int index) {
+        while (index != 0) {
+
+        }
     }
 
     public Vagonek getVagonekByIndex(int index) {
@@ -45,7 +65,7 @@ public class Vlacek {
      * @return
      */
     public Vagonek getLastVagonekByType(VagonekType type) {
-        return null;
+        return new Vagonek(type);
     }
 
     /**
@@ -65,7 +85,13 @@ public class Vlacek {
      * @return
      */
     public int getDelkaByType(VagonekType type) {
-        return 0;
+        int delkaTypu = 0;
+        for (int i = 0; i < delka; i++) {
+            if (getVagonekByIndex(i).getType() == type) {
+                delkaTypu++;
+            }
+        }
+        return delkaTypu;
     }
 
     /**

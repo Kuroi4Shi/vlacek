@@ -43,7 +43,7 @@ class VlacekTest {
 
     @Test
     void test4() {
-        test2(); // L,1,2,2,P
+        test2(); // L,1,J,2,2,P
         vlacek.pridatVagonek(VagonekType.JIDELNI);
         Vagonek vagonek = vlacek.getVagonekByIndex(3);
         assertEquals(VagonekType.JIDELNI, vagonek.getType());

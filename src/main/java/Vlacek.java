@@ -110,7 +110,7 @@ public class Vlacek {
         if (getDelkaByType(VagonekType.JIDELNI) == 0) {
             atIndex = getVagonekByIndex(getDelkaByType(VagonekType.PRVNI_TRIDA) + 1);
         } else if (getDelkaByType(VagonekType.JIDELNI) == 1) {
-            atIndex = getVagonekByIndex(getDelkaByType(VagonekType.PRVNI_TRIDA) + Math.round(getDelkaByType(VagonekType.DRUHA_TRIDA)/2 +1));
+            atIndex = getVagonekByIndex(getDelkaByType(VagonekType.PRVNI_TRIDA) + Math.round(getDelkaByType(VagonekType.DRUHA_TRIDA)/2)+3);
         }
         jidelni.setPredchozi(atIndex);
         jidelni.setNasledujici(atIndex.getNasledujici());
